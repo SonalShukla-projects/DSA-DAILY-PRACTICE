@@ -5,14 +5,22 @@ n=len(a)
 target=int(input("Search this element :"))
 idx=0
 flag=0 # not found
-
-for i in range(0,n-1):
-    if a[i]==target:
-        flag=1
-        idx=i
+left=0
+right=n-1
+while left<=right:
+    mid=(left+right)//2
+    if a[mid]==target:
+        print("Element found at ",mid)
+        found=1
         break
+    elif target>a[mid]:
+        left=mid+1
+    else:
+        right=mid-1
 
-if flag==1:
-    print("Element found at : ",idx,"Element:",target)
-else:
-    print("Not found.")
+if not found:
+    print("element not found")
+          
+
+
+    
